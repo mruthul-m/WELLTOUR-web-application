@@ -1,0 +1,72 @@
+
+
+
+    <section id ="page-header" class="about-header">
+
+
+<h2>Your Appointments</h2>
+
+    </section>
+
+
+    <section id="cart" class="section-p1">
+        <table width="100%" id="itemsTable">
+            <thead >
+                <tr>
+                    <td scope="col">Date</td>
+                    <td>Name</td>
+                    <td>Address</td>
+                    <td>Mobile</td>
+                    <td>Amount</td>
+                    <td>Payment</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each bookings}}
+                <tr>
+                    
+                    {{!-- <td><a href="#><i class="far fa-times-circle"></i></a></td> --}}
+                    <td>{{this.billingDetails.prefdate}}</td>
+                    <td>{{this.billingDetails.name}}</td>
+
+                    <td>{{this.billingDetails.address}}</td>
+                    
+                    <td>{{this.billingDetails.mobile}}</td>
+                    <td>{{this.totalAmount}}</td>
+                    <td>{{this.paymentMethod}}</td>
+                    <td>{{this.status}}</td>
+
+                    <td> 
+                        <div class="table-actions">
+                        <a class="fas fa-trash delete-icon" href="/center/delete-appointment/{{this._id}}" onclick=" return confirm('Are you sure?'); " ></a>
+
+                        <a class="fas fa-check-circle admit-icon" onclick="window.location.href='/center/change-work-status/{{this._id}}';"></a>
+                        <a class="fas fa-calendar-edit file-icon" onclick="window.location.href='/center/change-appointment-date/{{this._id}}';"></a>
+
+                        </div>
+
+                    </td>
+
+
+                </tr>
+        
+                {{/each}}
+
+
+            </tbody>
+        </table>
+        
+    </section>
+
+
+
+
+<script>
+    $(document).ready( function () {
+    $('#itemsTable').DataTable();
+} );
+</script>

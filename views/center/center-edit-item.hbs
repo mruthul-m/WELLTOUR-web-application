@@ -1,0 +1,32 @@
+
+<section id ="page-header" class="about-header">
+<h2>Edit </h2>
+</section>
+
+
+    <section id="form-details">
+        <form action="/center/center-edit-item/{{item._id}}" enctype="multipart/form-data" method="post">
+            <h3>Edit </h3><br>
+
+            <img src="/images/workImages/{{item._id}}.png" alt="IMAGE" style="width: 100px; height:auto; margin: 5px; border-radius:5px; " id="imgView" ><br>
+            <input type="text" placeholder="Name" name="name" value={{item.name}} >
+            <input type="text" placeholder="Category" name="category" value={{item.category}} >
+            <input type="text" placeholder="Location" name="location" value={{item.location}} >
+            <input type="number"placeholder="Cost" name="cost" value={{item.cost}} >
+            <textarea  id="" cols="30" rows="10" placeholder="Description" name="description"  >{{item.description}}</textarea>
+            <input type="file" name="image" required  onchange="viewImage(event)" >    
+            <button type="submit" class="normal">Save</button>
+        </form>
+
+     
+    </section>
+
+
+
+<script>
+
+function viewImage(event){
+    document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0])
+}
+
+</script>

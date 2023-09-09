@@ -1,0 +1,50 @@
+
+    <section id ="page-header" class="about-header">
+
+        <h2>Services</h2>
+
+    </section>
+
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Photo</td>
+                    <td>Name</td>
+                    <td>category</td>
+                    <td>Center</td>
+                    <td>Cost</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each items}}
+                <tr>
+                    
+                    <td><img src="/images/workImages/{{this._id}}1.png" alt=""></td> 
+                    <td>{{this.name}}</td>
+                    <td>{{this.category}}</td>
+                    <td>{{this.centerName}}</td>
+                    <td>{{this.cost}}</td>
+                    <td>{{this.status}}</td>
+                    <td>
+                        <div class="table-actions">
+                         <a class="fas fa-trash delete-icon" href="/admin/admin-delete-item/{{this._id}}" onclick=" return confirm('Can I delete {{this.name}} item ?')"> </a>
+
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+
+
+            </tbody>
+        </table>
+    </section>
+
+
+
+
+

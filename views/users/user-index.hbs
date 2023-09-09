@@ -1,0 +1,113 @@
+
+
+
+<section id ="ads">
+
+</section>
+
+
+<!--featured works-->
+<section id="work1" class="section-p1">
+
+   <div class="work-container">
+
+      {{#each items}}
+      <div class="work" >
+         <img src="/images/workImages/{{this._id}}1.png" alt="" onclick="window.location.href='./user-sitem/{{this._id}}';" >
+         <div class="des">
+            <span>{{this.category}}   </span> 
+            <h5>{{this.name}}</h5>
+
+            <span>{{this.duration}}</span><br>
+
+            <span>{{this.location}} <span>
+
+         <h4 style="color: rgb(2, 98, 32); padding: 8px 0px;"> ₹ {{this.cost}}</h4> 
+
+         </div>
+                       {{!-- <button onclick="addTocart('{{this._id}}')"  class="add">Add</button>  --}}
+                       <button onclick="addTocart('{{this._id}}')"  class="fas fa-plus cart"></button> 
+
+      </div> 
+
+{{/each}}
+
+      <!--div container end-->
+      </div>
+      
+
+
+  <!-- </div> suspicous div-->
+
+</section>
+
+<!--pagination-->
+<section id="pagination" class="section-p1">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+
+</section>
+
+<!--banner-->
+<section id="banner" class="section-m1">
+
+   <h2>Up to <span> 80% Off</span> - All Wellness Services</h2>
+   <button class="normal">Explore More</button>
+
+</section>
+
+<!--small banners-->
+<section id="sm-banner" class="section-p1">
+
+   <div class="banner-box">
+      <h4>Book Now</h4>
+      <h2>WELLNESS PRODUCTS </h2>
+      <span>Concrete the World with Massage! </span>
+      <button class="white">Learn More</button>
+   </div>
+
+   <div class="banner-box banner-box2">
+      <h4>Book Now</h4>
+      <h2>Thirummal </h2>
+      <span>Always Care your body </span>
+      <button class="white">Learn More</button>
+   </div>
+
+
+</section>
+
+<!--banner3-->
+<section id="banner3" >
+
+   <div class="banner-box">
+      <h2>Products </h2>
+      <h3>Highy quality assured</h3>
+   </div>
+
+   <div class="banner-box banner-box2">
+      <h2>Kizhi </h2>
+      <h3>Best for pain</h3>
+   </div>
+
+   <div class="banner-box banner-box3">
+      <h2>Powders </h2>
+      <h3>Shapes diffrently</h3>
+   </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+</script>

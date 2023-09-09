@@ -1,0 +1,77 @@
+
+<!--NEWSLETTER-->
+<section id="newsletter" class="section-p1 section-m1">
+   <div class="newstext">
+      <h4>Sign Up for Lorem</h4>
+      <p>Get updates lorem <span>offers</span> etc</p>
+   </div>
+   
+   <div class="form">
+      <input type="text" placeholder="Your email address">
+      <button class="normal">SignUp</button>
+
+   </div>
+
+</section>
+
+
+
+<!--EDIT THIS FOOTER AFTER CREATING FOOTER PARTIALS-->
+
+<footer class="section-p1">
+   <div class="col">
+      <img  class="logo" style="height: 50px;width:175px;" src="/images/img/logo/logo.png" alt="logo">
+      <h4>Contact</h4>
+      <p><strong>Address: </strong> 674 ,Trivandrum, Kerala, India</p>
+      <p><strong>Phone: </strong> +91 987654321</p>
+
+      <div class="follow">
+
+         <h4>Follow us</h4>
+         <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-youtube"></i>
+
+         </div>
+      </div>
+   </div>
+ 
+   <div class="col">
+      <h4>About</h4>
+      <a href="#">About us</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Contact Us</a>
+
+   </div>
+
+    <div class="col">
+      <h4>WellTour</h4>
+      <a href="center-signup">Center Registration</a>
+      <a href="center-login">Center Login</a>
+
+    </div>
+
+   <div class="col">
+      <h4>My Account</h4>
+
+      {{#if user}}
+      <a href="/logout">Logout</a>
+      {{else}}
+      <a href="#">Login</a>
+      {{/if}}
+
+
+
+   </div>
+
+
+
+
+<div class="copyright"><br>
+   <p>Copyright © 2023 WellTour </p>
+</div>
+
+</footer>

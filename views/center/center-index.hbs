@@ -1,0 +1,81 @@
+
+
+<section id="newsletter" class="section-p1 section-m1">
+   <div class="newstext">
+
+
+   </div>
+   
+   <div class="form">
+      <input type="text" placeholder="enter keyword">
+      <button class="normal">Search</button>
+
+   </div>
+
+</section>
+
+
+
+<!--search bar ends-->
+
+
+
+<!--featured works-->
+
+<section id="work1" class="section-p1">
+
+   <div class="work-container">
+
+{{#each items}}
+      <div class="work" >
+         <img src="/images/workImages/{{this._id}}1.png" alt="" onclick="window.location.href='/center/center-sitem/{{this._id}}';" >
+         <div class="des">
+            <span>{{this.category}}</span> &nbsp;
+            <h5>{{this.name}}</h5>
+
+             {{!-- <span>{{this.location}}</span> --}}
+{{!-- 
+            <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            </div> --}}
+         {{!-- <h6>{{this.description}}</h6> --}}
+         <h4 style="color: rgb(2, 98, 32); padding: 8px 0px;"> ₹ {{this.cost}}</h4> 
+
+         {{!-- <h4>${{this.cost}}</h4> --}}
+
+         </div><br><br><br>
+         <div class="action-btns">
+
+         <a class="del-icon" href="/center/center-delete-item/{{this._id}}" onclick=" return confirm('Can I delete {{this.name}} item ?')"><i class="fas fa-trash-alt delete-icon-center"></i></a>
+         <a class="edit-icon" href="/center/center-edit-item/{{this._id}}"><i class="fas fa-pen edit-icon-center"></i></a>
+         </div>
+
+      </div> 
+      
+{{/each}}
+
+<!--addeded extra items-->
+   </div>
+
+</section>
+
+
+<section id="pagination" class="section-p1">
+
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a><br>
+   
+   <button class="add" onclick="window.location.href='/center/center-addwork';">
+      Add
+    </button>
+
+</section> 
+
+
+
+
+

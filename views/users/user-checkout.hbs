@@ -1,0 +1,162 @@
+
+<section id ="page-header" class="about-header">
+<h2>Checkout</h2>
+</section>
+
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+
+        </div>
+
+        <div id="subtotal">
+        <form action="#" id="checkout-form">
+
+            <h3>Totals</h3>
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>₹ {{total}}</td>
+                </tr>
+                <tr>
+                    <td>Misc</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>₹ {{total}}</strong></td>
+                </tr>
+            </table>
+             <h3>Payment Method</h3>
+
+            <input type="radio" id="cih" name="payment-method" value="CIH">
+            <label for="cih">Cash In Hand</label>&nbsp;&nbsp;
+
+            <input type="radio" id="op" name="payment-method" value="OP" checked >
+            <label for="op">Online Payment</label><br><br><br>
+
+            <h3>Billing Address</h3>
+            <div id="address-field">
+            <input type="text" id="name" name="name" placeholder="enter the name" required>
+
+            <input type="text" id="address" name="address" placeholder="enter the address" required>
+            {{!-- <input type="text" id="pincode" name="pincode" placeholder="enter the pincode"> --}}
+            <input type="text" id="mobile-number" name="mobile-number" placeholder="enter the mobile number" required>
+            <input type="text" id="email" name="email" placeholder="enter the email" required>
+
+            <input type="text" name="userId" id="" value="{{user._id}}" hidden><br>
+            <h3>Preffered Date</h3>
+            <input type="date" id="pref-date" name="pref-date" required> 
+            <button class="normal" type="submit" >Proceed</button>
+            </div>
+
+
+            </form>
+    </div>
+    </section>
+
+
+<script>
+
+    $("#checkout-form").submit((e)=>{
+        e.preventDefault()
+
+        $.ajax({
+            url:'/user-book-appointment',
+            method:'post',
+            data:$('#checkout-form').serialize(),
+            success:(response)=>{
+
+
+                
+               alert("Booking...")
+               // alert(response)
+               if(response.cihSuccess){
+                location.href='/user-view-appointments'
+               }
+               else{
+                    razorpayPayment(response)
+
+
+               }
+            }
+        })
+    })
+
+function razorpayPayment(order){
+    var options = {
+    "key": "rzp_test_ZckCUeMI40mXjV", // Enter the Key ID generated from the Dashboard
+    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "WellTour",
+    "description": "Test Transaction",
+    "image": "/images/img/logo/logo.png",
+    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+
+//extras
+    "handler":function(response){
+        alert("Payment ID:"+response.razorpay_payment_id);
+        //alert("Order ID:",response.razorpay_order_id);
+        //alert("Signature:",response.razorpay_signature);
+
+        verifyPayment(response,order)
+    },
+
+//extras
+
+
+    "prefill": {
+        "name": "WellTour",
+        "email": "mruthul@a.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "WellTour Corporate Office"
+    },
+    "theme": {
+        "color": "#000040"
+    }
+};
+
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+}
+
+function verifyPayment(payment,order){
+    $.ajax({
+        url:'/verify-payment',
+        data:{
+            payment,
+            order
+        },
+        method:'post',
+        success:(response)=>{
+            if(response.status){
+                alert("Booking Successfull!")
+                location.href = '/user-view-appointments'
+            }else{
+                alert("Payment Failed!")
+            }
+        }
+    })
+}
+
+</script>
+
+
+ {{!-- Disbale Past Dates --}}
+<script type="text/javascript">
+$(function(){
+    var dtToday = new Date();
+ 
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+     day = '0' + day.toString();
+    var maxDate = year + '-' + month + '-' + day;
+    $('#pref-date').attr('min', maxDate);
+});
+</script>

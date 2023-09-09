@@ -1,0 +1,82 @@
+
+
+<section id="itemdetails" class="section-p1">
+
+    <div class="single-item-image">
+        <img src="../images/workImages/{{singleitem._id}}1.png" alt="IMAGE"  width="100%" id="MainImg" alt="">
+
+
+        <div class="small-img-group">
+            <div class="small-img-col">
+                <img src="../images/workImages/{{singleitem._id}}1.png" alt="IMAGE"  width="100%" class="small-img" alt="">
+            </div>
+            <div class="small-img-col">
+                <img src="../images/workImages/{{singleitem._id}}2.png" alt="IMAGE"  width="100%"  class="small-img" alt="">
+            </div><div class="small-img-col"> 
+                <img src="../images/workImages/{{singleitem._id}}3.png" alt="IMAGE"  width="100%"  class="small-img" alt="">
+            </div><div class="small-img-col">
+                <img src="../images/workImages/{{singleitem._id}}4.png" alt="IMAGE"  width="100%"  class="small-img" alt="">
+            </div>
+
+        </div>    
+    </div>
+
+
+    <div class="single-item-details">
+        <h6>{{singleitem.category}}</h6>
+        <span>{{singleitem.location}}</span>
+
+        <h4>{{singleitem.name}}</h4>
+        <span>{{singleitem.duration}} <span>
+
+        <h2>₹{{singleitem.cost}}</h2>
+
+
+        
+
+        {{!-- <input type="number" value="1"> --}}
+        <button class="normal" onclick="addTocart('{{singleitem._id}}')">Add To List</button>
+        <h4> Description</h4>
+        <span>
+         {{singleitem.description}}
+
+        </span>
+
+
+    </div>
+</section>
+
+
+
+
+
+
+
+<script>
+    var MainImg = document.getElementById("MainImg");
+    var smallImg = document.getElementsByClassName("small-img");
+
+    smallImg[0].onclick = function(){
+        MainImg.src = smallImg[0].src;
+    }
+
+    smallImg[1].onclick = function(){
+        MainImg.src = smallImg[1].src;
+    }
+    
+    smallImg[2].onclick = function(){
+        MainImg.src = smallImg[2].src;
+    }
+
+    smallImg[3].onclick = function(){
+        MainImg.src = smallImg[3].src;
+    }
+
+
+
+</script>
+
+
+
+ {{!-- <script src="../javascripts/script.js"></script>  --}}
+

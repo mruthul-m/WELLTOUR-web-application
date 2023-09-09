@@ -1,0 +1,53 @@
+
+<section id ="page-header" class="about-header">
+<h2>CHANGE DATE! </h2>
+</section>
+
+
+    <section id="form-details">
+        <form action="/center/center-change-appointment-date/{{item._id}}" enctype="multipart/form-data" method="post">
+            <h3>Enter The New Date </h3><br>
+{{!-- 
+            <img src="/images/workImages/{{item._id}}.png" alt="IMAGE" style="width: 100px; height:auto; margin: 5px; border-radius:5px; " id="imgView" ><br>
+            <input type="text" placeholder="Name" name="name" value={{item.name}} >
+            <input type="text" placeholder="Category" name="category" value={{item.category}} >
+            <input type="text" placeholder="Location" name="location" value={{item.location}} >
+            <input type="number"placeholder="Cost" name="cost" value={{item.cost}} >
+            <textarea  id="" cols="30" rows="10" placeholder="Description" name="description"  >{{item.description}}</textarea>
+             --}}
+            <input type="date" id="pref-date" name="prefdate" required> 
+
+
+            <button type="submit" class="normal">Save</button>
+        </form>
+
+     
+    </section>
+
+
+
+<script>
+
+function viewImage(event){
+    document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0])
+}
+
+</script>
+
+
+ {{!-- Disbale Past Dates --}}
+<script type="text/javascript">
+$(function(){
+    var dtToday = new Date();
+ 
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+     day = '0' + day.toString();
+    var maxDate = year + '-' + month + '-' + day;
+    $('#pref-date').attr('min', maxDate);
+});
+</script>

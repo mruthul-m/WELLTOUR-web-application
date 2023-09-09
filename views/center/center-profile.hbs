@@ -1,0 +1,59 @@
+
+    <section id ="page-header" class="about-header">
+
+
+<h2>Profile</h2>
+
+    </section>
+
+
+    <section id="contact-details" class="section-p1">
+        <div class="details">
+            
+            <span>Center Details</span>
+            <h2>{{centerDetails.centerName}}</h2>
+            <h3>{{centerDetails.centerType}}</h3>
+            <div>
+
+                <li>
+                    <i class="fal fa-map"></i>
+                    <p>{{centerDetails.district}}</p>
+                </li>
+                
+                <li>
+                    <i class="far fa-envelope"></i>
+                    <p>{{centerDetails.email}}</p>
+                </li>
+                
+                <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <p>{{centerDetails.phone}}</p>
+                </li>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <section id="form-details">
+        <form action="/center/center-update-profile" method="post">
+            <span>EDIT PROFILE</span><br>
+
+           <!-- <h2>We love to hear from you</h2> -->
+            <input type="hidden" value="{{centerDetails._id}}" name="centerId">
+            <input type="text" name="centerName" value="{{centerDetails.centerName}}">
+            <input type="text" name="centerType" value="{{centerDetails.centerType}}">
+            <input type="text" name="city" value="{{centerDetails.city}}">
+            <input type="text" name="district" value="{{centerDetails.district}}">
+            <input type="text" name="email" value="{{centerDetails.email}}">
+            <input type="text" name="phone"  value="{{centerDetails.phone}}">
+            
+            <button class="normal">Save</button>
+        </form>
+
+
+    </section>
+

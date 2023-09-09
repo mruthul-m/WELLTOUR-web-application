@@ -1,0 +1,50 @@
+
+
+<section id ="page-header" class="blog-header">
+
+
+<h2>Booked Service</h2>
+
+
+</section>
+
+<section id="blog">
+{{#each bookingItems}}
+
+    <div class="blog-box">
+        <div class="blog-img">
+            <img src="/images/workImages/{{this.singleitem._id}}1.png" alt="">
+        </div>
+        <div class="blog-details">
+            <h4>{{this.singleitem.name}}</h4><br>
+            <span>{{this.singleitem.category}}</span><br>
+
+            <span>{{this.singleitem.location}}</span><br><br>
+
+            <h2>₹ {{this.singleitem.cost}}</h2>
+
+
+            <span>{{this.singleitem.description}} </span>
+            {{!-- <a href="#">CONTINUE READING</a> --}}
+        </div>
+        <h1>{{this.singleitem.name}}</h1>
+    </div>
+{{/each}}
+
+
+</section>
+
+
+<!--pagination-->
+<section id="pagination" class="section-p1">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+
+
+</section>
+
+
+
+
+

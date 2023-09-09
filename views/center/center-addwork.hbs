@@ -1,0 +1,36 @@
+
+<section id ="page-header" class="about-header">
+<h2>New Service </h2>
+</section>
+
+
+
+    <section id="form-details">
+        <form action="/center/center-addwork" enctype="multipart/form-data" method="post">
+            <h3>Add New Item</h3><br>
+            <!--<span>Add New Work</span><br> -->
+
+            <input type="hidden" name="centerId" value="{{centerDetails._id}}">
+            <input type="hidden" name="centerName" value="{{centerDetails.centerName}}">
+
+            <input type="text" placeholder="Name" name="name">
+            <input type="text" placeholder="Category" name="category">
+            <input type="number"placeholder="Cost" name="cost">
+            <input type="text"placeholder="Duration" name="duration">
+
+            <textarea  id="" cols="30" rows="5" placeholder="Centre Details" name="location"></textarea>
+
+            <textarea  id="" cols="30" rows="10" placeholder="Description" name="description"></textarea>
+
+            <input type="file" name="image1" required>    
+            <input type="file" name="image2" required>    
+            <input type="file" name="image3" required>    
+            <input type="file" name="image4" required>    
+
+            <button type="submit" class="normal">Save</button>
+        </form>
+
+     
+    </section>
+
+

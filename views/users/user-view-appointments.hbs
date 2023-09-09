@@ -1,0 +1,75 @@
+
+
+
+    <section id ="page-header" class="about-header">
+
+<h2>Appointments</h2>
+
+    </section>
+
+
+    <section id="cart" class="section-p1">
+        
+        <table width="100%" id="itemsTable">
+           <br> <br>
+            <thead>
+                <tr>
+                    <td scope="col">Date</td>
+                    <td>Name</td>
+                    <td>Address</td>
+                    <td>Mobile</td>
+                    <td>Amount</td>
+                    <td>Payment</td>
+                    <td>Status</td>
+                    <td>View</td>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each bookings}}
+                <tr>
+                    
+                    {{!-- <td><a href="#><i class="far fa-times-circle"></i></a></td> --}}
+                    <td>{{this.billingDetails.prefdate}}</td>
+                    <td>{{this.billingDetails.name}}</td>
+                    <td>{{this.billingDetails.address}}</td>
+                    {{!-- <td>{{this.billingDetails.email}}</td> --}}
+                    <td>{{this.billingDetails.mobile}}</td>
+                    <td>{{this.totalAmount}}</td>
+                    <td>{{this.paymentMethod}}</td>
+                    <td>{{this.status}}</td>
+                    <td> 
+                        <div class="table-actions">
+                        <a class="far fa-eye view-icon" onclick="window.location.href='./user-view-appointments-items/{{this._id}}';"></a>
+
+                        </div>
+                    </td>
+
+                    {{!-- <button class="fal fa-plus" onclick="changeDayCount('{{this._id}}','{{this.singleitem._id}}','{{../user._id}}',1)"></button></td>  --}}
+
+                </tr>
+        
+                {{/each}}
+
+
+            </tbody>
+        </table>
+        
+        {{#if appointmentStatus}}
+            <script>
+                alert("Center has Rescheduled your date to new date!")
+            </script>
+        {{/if}}
+
+
+    </section>
+
+
+
+<script>
+    $(document).ready( function () {
+    $('#itemsTable').DataTable();
+} );
+</script>
+

@@ -1,0 +1,66 @@
+
+
+<section id ="page-header">
+
+<h2>{{user.first_name}}</h2>
+
+</section>
+
+
+</section>
+
+
+    <section id="contact-details" class="section-p1">
+        <div class="details">
+            
+            {{!-- <span>Hello</span> --}}
+            <h2>{{user.first_name}}</h2>
+            <h3>{{user.last_name}}</h3>
+            <div>
+
+                <li>
+                    <i class="fal fa-map"></i>
+                    <p>{{user.location}}</p>
+                </li>
+                
+                <li>
+                    <i class="far fa-envelope"></i>
+                    <p>{{user.email}}</p>
+                </li>
+                
+                <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <p>{{user.phone}}</p>
+                </li>
+                
+
+            
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="form-details">
+        <form action="/user-update-profile" method="post">
+            {{!-- <span>Edit Profile</span> --}}
+            <h2>Update Profile</h2>
+
+                        <input type="hidden" name="userId" value="{{user._id}}" >
+
+            <input type="text" placeholder="First Name" name="first_name" value="{{user.first_name}}" >
+            <input type="text" placeholder="Last Name" name="last_name" value="{{user.last_name}}">
+            <input type="text" placeholder="Location" name="location" value="{{user.location}}">
+            <input type="email" placeholder="Email" name="email" value="{{user.email}}" >
+            <input type="phone" placeholder="Phone" name="phone" value="{{user.phone}}" >
+            <button class="normal">Save</button>
+        </form>
+            
+    </section>
+
+
+ 
+
+
+
+

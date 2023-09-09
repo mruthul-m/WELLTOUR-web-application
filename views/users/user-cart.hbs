@@ -1,0 +1,84 @@
+
+    <section id ="page-header" class="about-header">
+
+
+<h2>Selected Items</h2>
+
+
+    </section>
+
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Item</td>
+                    <td>Cost</td>
+                    <td>Members</td>
+                    <td>Subtotal</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each items}}
+                <tr>
+                    
+                    {{!-- <td><a href="#><i class="far fa-times-circle"></i></a></td> --}}
+                    <td> <button class="far fa-times-circle" onclick="removeItemFromCart('{{this._id}}','{{this.singleitem._id}}')"> </button> </td>
+                    <td><img src="/images/workImages/{{this.singleitem._id}}1.png" alt=""></td>
+                    <td>{{this.singleitem.name}}</td>
+                    <td>{{this.singleitem.cost}}</td>
+                    
+                    <td><button class="fal fa-minus" onclick="changeDayCount('{{this._id}}','{{this.singleitem._id}}','{{../user._id}}',-1)" ></button>
+                   <span id="{{this.singleitem._id}}"> {{this.days}}</span>
+                    <button class="fal fa-plus" onclick="changeDayCount('{{this._id}}','{{this.singleitem._id}}','{{../user._id}}',1)"></button></td> 
+                       <!-- <input type="number" value="{{this.days}}"> -->
+                    <td>{{this.singleitem.cost}}</td>
+                </tr>
+               
+                {{/each}}
+
+
+            </tbody>
+        </table>
+    </section>
+
+
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+            <h3>Apply Coupon</h3>
+            <div>
+                <input type="text" placeholder="Enter Your Coupon">
+                <button class="normal" >Apply</button>
+            </div>
+        </div>
+
+        <div id="subtotal">
+            <h3>Item Totals</h3>
+            <table>
+                <tr>
+                    <td> Subtotal</td>
+                    <td>{{totalAmount}}</td>
+                </tr>
+
+                <tr>
+                    <td>Misc</td>
+                    <td>Free</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong> <span id="total" > {{totalAmount}} </span> </strong></td>
+                </tr>
+
+            </table>
+
+            <button class="normal" onclick="window.location.href='./user-checkout';">Proceed</button>
+
+        </div>
+    </section>
+
+
+

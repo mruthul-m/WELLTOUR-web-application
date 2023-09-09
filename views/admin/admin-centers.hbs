@@ -1,0 +1,70 @@
+
+    <section id ="page-header" class="about-header">
+
+
+<h2>Centers</h2>
+
+    </section>
+
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    
+                    <td>Name</td>
+                    <td>Category</td>
+                    <td>City</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                    <td>Documents</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each items}}
+                <tr>
+                    
+                    <td>{{this.centerName}}</td>
+                    <td>{{this.centerType}}</td>
+                    <td>{{this.city}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.phone}}</td>
+                    <td>
+                        <div class="table-actions">
+                        <a class="far fa-file file-icon" href="/images/people/centers/certificates/{{this._id}}.pdf"> </a>
+                        <a class="fas fa-id-badge id-icon" href="/images/people/centers/idCards/{{this._id}}.pdf"> </a>
+
+                        </div>
+
+
+                    </td>
+                    <td>{{this.status}}</td>
+                    <td> 
+                        <div class="table-actions">
+                        <a class="fas fa-trash delete-icon" href="/admin/admin-delete-center/{{this._id}}" onclick=" return confirm('Delete  {{this.centerName}} item ?')"> </a> 
+
+                        </div>
+                    </td>
+                     
+
+            
+                </tr>
+                {{/each}}
+
+
+            </tbody>
+        </table>
+    </section>
+
+
+
+
+
+
+
+
+
+

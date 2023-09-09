@@ -1,0 +1,34 @@
+    <!--USER TOP NAV BAR STARTS  -->
+<header>
+      <section id="header" >
+        
+        <a href="#"> <img src="/images/img/logo/logo.png" class="logo" style="height: 50px;width:180px;" ondblclick="window.location.href='/admin-login';" > </a>
+
+    <div>
+        <ul id="navbar">
+            <li><a  href="/index">Home</a></li>
+            <li><a href="/user-view-appointments">Booking</a></li>
+            <li><a href="/user-about">About</a></li>
+            <li><a href="/user-contact">Contact</a></li>
+           <!-- <li><a href="profile.html">Profile</a></li> -->
+           <li> <a href="/user-profile">
+            <i class="fas fa-user"></i>
+            {{#if user}}
+                {{user.first_name}}
+            {{/if}}
+            </a></li>
+        
+            <li id="lg-bag"><a href="/user-cart"><i class="fas fa-chart-network"></i> <span class="cart-badge" id="cart-count">{{cartCount}}</span> </a></li>
+            <a href="#" id="close"><i class="far fa-times"></i></a>
+        </ul>
+    </div>
+    <div id="mobile">
+      <a href="/user-cart"><i class="fas fa-chart-network"></i> <span class="cart-badge" id="cart-count">{{cartCount}}</span> </a>
+      <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+    </section>
+    </header>
+<!--USER TOP NAVBAR ENDS HERE-->
+
+

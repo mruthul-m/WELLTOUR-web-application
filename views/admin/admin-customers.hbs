@@ -1,0 +1,57 @@
+
+    <section id ="page-header" class="about-header">
+
+
+<h2>Customers</h2>
+
+
+
+
+    </section>
+
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    {{!-- <td>Photo</td> --}}
+
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Phone</td>
+                    <td>Location</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each customers}}
+                <tr>
+                    
+
+                    <td>{{this.first_name}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.phone}}</td>
+                    <td>{{this.location}}</td>
+                    <td>{{this.status}}</td>
+                    <td>   
+                        <div class="table-actions">
+                         <a class="fas fa-trash delete-icon" href="/admin/admin-delete-customer/{{this._id}}" onclick=" return confirm('Delete  {{this.first_name}} ?')"> </a> 
+
+                        </div>
+                    </td>
+               
+
+                </tr>
+                {{/each}}
+
+
+            </tbody>
+        </table>
+    </section>
+
+
+
+
+
